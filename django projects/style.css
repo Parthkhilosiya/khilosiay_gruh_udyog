@@ -1,0 +1,25 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+}
+
+.navbar {
+    margin-bottom: 20px;
+}
+
+.container h2 {
+    color: #007bff;
+}
+
+.card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#register {
+    margin-top: 20px;
+}
+
+#register .btn-secondary {
+    width: 100%;
+    padding: 10px;
+}

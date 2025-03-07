@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Grid with Add to Cart</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Basic Styles */
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .product-grid {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .product-card {
+      position: relative;
+      width: 200px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      overflow: hidden;
+      text-align: center;
+      padding: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+
+    .product-card h2 {
+      margin: 10px 0;
+      font-size: 18px;
+    }
+
+    .product-card p {
+      margin: 5px 0;
+      color: #555;
+    }
+
+    .product-card span {
+      font-size: 14px;
+      color: gray;
+    }
+
+    .product-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Add to Cart Button (Hidden by Default) */
+    .add-to-cart-btn {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #28a745;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 14px;
+      border-radius: 5px;
+      cursor: pointer;
+      display: none;
+    }
+
+    .product-card:hover .add-to-cart-btn {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="product-grid">
+    <!-- Product Card -->
+    <div class="product-card" data-product-name="Papadi" data-price="235">
+      <img src="./images/papadi.jpg" alt="Papadi">
+      <h2>Papadi</h2>
+      <p>Rs. 235.00</p>
+      <span>(Rs. 0.94 per g)</span>
+      <button class="add-to-cart-btn">Add to Cart</button>
+    </div>
+
+    <div class="product-card" data-product-name="Masala Sev" data-price="270">
+      <img src="./images/masala sev.webp" alt="Masala Sev">
+      <h2>Masala Sev</h2>
+      <p>Rs. 270.00</p>
+      <span>(Rs. 1.08 per g)</span>
+      <button class="add-to-cart-btn">Add to Cart</button>
+    </div>
+
+    <div class="product-card" data-product-name="Bhujia Sev" data-price="320">
+      <img src="./images/bhujiya sev.webp" alt="Bhujia Sev">
+      <h2>Bhujia Sev</h2>
+      <p>Rs. 320.00</p>
+      <span>(Rs. 1.28 per g)</span>
+      <button class="add-to-cart-btn">Add to Cart</button>
+    </div>
+  </div>
+
+  <!-- Cart Display -->
+  <div id="cart" style="margin-top: 20px; padding: 10px; border: 1px solid #ccc;">
+    <h3>Cart</h3>
+    <ul id="cart-items">
+      <!-- Items will be added dynamically here -->
+    </ul>
+  </div>
+
+  <script>
+    // JavaScript for Adding Products to Cart
+    const cartItems = [];
+
+    // Function to add item to cart
+    function addToCart(productName, price) {
+      const cart = document.getElementById("cart-items");
+      const listItem = document.createElement("li");
+      listItem.textContent = `${productName} - Rs. ${price}`;
+      cart.appendChild(listItem);
+      cartItems.push({ productName, price });
+      alert(`${productName} added to cart!`);
+    }
+
+    // Event Listener for Add to Cart Buttons
+    document.querySelectorAll(".add-to-cart-btn").forEach(button => {
+      button.addEventListener("click", event => {
+        const card = event.target.closest(".product-card");
+        const productName = card.getAttribute("data-product-name");
+        const price = card.getAttribute("data-price");
+        addToCart(productName, price);
+      });
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+<div class="product-grid" id="cart-items">
+  <!-- Product Card -->
+  <div class="product-card" data-product-name="Papadi" data-price="235">
+    <img src="./images/mango burfi.webp" alt="Mango Burfi">
+    <h2>Mango Burfi</h2>
+    <p>Rs. 235.00</p>
+    <span>(Rs. 0.94 per g)</span>
+    <button class="add-to-cart-btn">Add to Cart</button>
+  </div>
+
+  <div class="product-card" data-product-name="Special Burfi Combo" data-price="270">
+    <img src="./images/special burfi.webp" alt="Special Burfi Combo">
+    <h2>Special Burfi Combo</h2>
+    <p>Rs. 270.00</p>
+    <span>(Rs. 1.08 per g)</span>
+    <button class="add-to-cart-btn">Add to Cart</button>
+  </div>
+
+  <div class="product-card sold-out" data-product-name="Royal Kaju Katli Combo" data-price="320">
+    <img src="./images/kaju katli.webp" alt="Royal Kaju Katli Combo">
+    <h2>Royal Kaju Katli Combo</h2>
+    <p>Rs. 320.00</p>
+    <span>(Rs. 1.28 per g)</span>
+    <div class="sold-out-badge">Sold Out</div>
+    <button class="add-to-cart-btn">Add to Cart</button>
+  </div>
+  <div class="product-card" data-product-name="gulab jamun" data-price="270">
+      <img src="./images/Gulab jamun.jpg" alt="Special Burfi Combo">
+      <h2>gulab jamun</h2>
+      <p>Rs. 270.00</p>
+      <span>(Rs. 1.08 per g)</span>
+      <button class="add-to-cart-btn">Add to Cart</button>
+    </div>
+    <div class="product-card" data-product-name="mahsurpak" data-price="270">
+      <img src="./images/mysurpak.jpg" alt="Special Burfi Combo">
+      <h2>mahsurpak</h2>
+      <p>Rs. 270.00</p>
+      <span>(Rs. 1.08 per g)</span>
+      <button class="add-to-cart-btn">Add to Cart</button>
+    </div>
+    <div class="product-card" data-product-name="rosgula" data-price=" 270">
+      <img src="./images/rasgulla.webp" alt="Special Burfi Combo">
+      <h2>rosgula</h2>
+      <p>Rs. 270.00</p>
+      <span>(Rs. 1.08 per g)</span>
+      <button class="add-to-cart-btn" onclick="rendercart">Add to Cart</button>
+    </div>
+</div>
+</main>
+</div>
+
+
+
+
+
+
+
+
+
+// Array to store cart items
+const cartItems = [];
+   
+// Function to update the cart display
+function renderCart() {
+  const cartTable = document.getElementById("cart-items");
+  const subtotalElement = document.getElementById("subtotal");
+  const totalElement = document.getElementById("total");
+
+  cartTable.innerHTML = ""; // Clear table
+  let subtotal = 0;
+
+  cartItems.forEach((item, index) => {
+    const total = item.price * item.quantity;
+    subtotal += total;
+
+    cartTable.innerHTML += `
+      <tr>
+        <td>
+          <strong>${item.name}</strong>
+          <br>${item.weight} g
+        </td>
+        <td>Rs. ${item.price.toFixed(2)}</td>
+        <td>
+          <button onclick="changeQuantity(${index}, -1)">-</button>
+          ${item.quantity}
+          <button onclick="changeQuantity(${index}, 1)">+</button>
+        </td>
+        <td>Rs. ${total.toFixed(2)}</td>
+        <td><button onclick="removeItem(${index})">🗑️</button></td>
+      </tr>
+    `;
+  });
+  c
+
+  subtotalElement.textContent = `Rs. ${subtotal.toFixed(2)}`;
+  totalElement.textContent = `Rs. ${subtotal.toFixed(2)}`;
+}
+
+// Function to handle quantity change
+function changeQuantity(index, delta) {
+  if (cartItems[index].quantity + delta > 0) {
+    cartItems[index].quantity += delta;
+    renderCart();
+  }
+}
+
+// Function to remove an item from the cart
+function removeItem(index) {
+  cartItems.splice(index, 1);
+  renderCart();
+}
+
+// Clear Cart
+document.getElementById("clear-cart").addEventListener("click", () => {
+  cartItems.length = 0;
+  renderCart();
+});
+
+// Checkout (placeholder functionality)
+document.getElementById("checkout").addEventListener("click", () => {
+  alert("Proceeding to checkout!");
+});
+
+// Add to Cart functionality
+function addToCart(event) {
+  const productCard = event.target.closest('.product-card');
+  const productName = productCard.getAttribute('data-product-name');
+  const productPrice = parseFloat(productCard.getAttribute('data-price'));
+  const productWeight = parseInt(productCard.getAttribute('data-weight'));
+
+  // Check if item is already in the cart
+  const existingItemIndex = cartItems.findIndex(item => item.name === productName);
+
+  if (existingItemIndex > -1) {
+    // If item exists, increase quantity
+    cartItems[existingItemIndex].quantity += 1;
+  } else {
+    // Otherwise, add new item to the cart
+    cartItems.push({ name: productName, price: productPrice, weight: productWeight, quantity: 1 });
+  }
+
+  renderCart();
+}
+
+// Attach event listeners to all "Add to Cart" buttons
+document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+  button.addEventListener('click', addToCart);
+});
+
+// Initial cart render
+renderCart();

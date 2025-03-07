@@ -1,0 +1,107 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.back{
+    padding: 10px;
+    font-size: 20px;
+    background-color: rgb(185, 3, 3);
+    color: rgb(254, 254, 254);
+    position:relative;
+    left: 200px;
+    top: 100px;
+    
+}
+.heading{
+    text-align: center;
+    padding: 10px;
+    margin-top: 10px;
+
+}
+
+.parent{
+    height: 100vh;
+    width: 100%;
+    /* background-color: white; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.parent .main{
+    height: 500px;
+    width: 800px;
+    /* background-color: rgb(65, 110, 122); */
+    display: flex;
+    box-shadow: 0 0 10px 10px gray;
+    border-radius: 30px;
+}
+.parent .main .first{
+    height: 500px;
+    width: 400px;
+    /* background-color: azure; */
+    border: 1px solid black;
+    border-radius: 30px 0 0 30px;
+    
+}
+.parent .main .second{
+    height: 430px;
+    width: 330px;
+    background-color: white;
+    padding-left: 70px;
+    padding-top: 70px;
+    border-radius:0 30px 30px 0 ;
+}
+
+.parent .main .first{
+    background-image: url(https://m.media-amazon.com/images/I/7163OmwlZhL.jpg);
+    background-position: center;
+    background-size:cover;
+    
+}
+.parent .main .second input{
+    height: 35px;
+    width: 270px;
+    padding-left: 20px;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid crimson;
+}
+.parent .main .second  button{
+    height: 35px;
+    width: 270px;
+    background-color: crimson;
+    color: white;
+    border: 2px solid black;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+    padding-left: 10px;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 0 2px 2px gray;
+    margin-top: 20px;
+
+}
+.parent .main .second .singup{
+    margin-top: 10px;
+}
+.parent .main .second .icon{
+    font-size: 1.8rem;
+    position: relative;
+    top: 30px;
+
+}
+.parent .main .second .icon>i:first-child{
+        color: crimson;
+        margin-left: 40px
+        ;
+}
+.parent .main .second .icon>i:nth-child(2){
+    color: rgb(74, 255, 19);
+    margin-left: 40px;  
+}
+.parent .main .second .icon>i:last-child{
+    color: rgb(35, 13, 235);
+    margin-left: 40px
+    ;
+}
